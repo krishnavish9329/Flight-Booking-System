@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Flight Booking System for Airlines</title>
+    <link rel="stylesheet" href="/Register.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="nav-1">
+        <div id="#left">
+          <img src="/image/logo.png" alt="flight" id="web-logo" />
+          <span id="web-name">AIR INDIA</span>
+        </div>
+
+        <ul id="center">
+          <li><a id="home" href="/Home">HOME</a></li>
+          <li><a id="booking" href="/Booking"style="color:black">BOOKING</a></li>
+          <li><a id="login" href="/Login" style="color:white">LOGIN</a></li>
+        </ul>
+        <div id="right">
+          <form   action="http://www.google.com/search"   method="get"   target="_blank" >
+            <input
+              type="text"
+              placeholder="Search"
+              name="q"
+              autocomplete="off"
+            />
+
+            <button type="submit" id="sub-btn">
+              <img src="/image/search.png" id="search" />
+            </button>
+          </form>
+        </div>
+      </nav>
+    </header>
+    <main>
+        <style>
+            .container{
+                height: 350px;
+            }
+            #log{
+                width: 90%;
+                height: 200px;
+                margin-left: 70px;
+                padding-top: 25px;
+            }
+            .int{
+                background-color: white;
+                color: black;
+                font-size: 15px;
+            }
+            
+        </style>
+      <div class="container">
+        
+        <div id="log">
+
+
+
+          <div>
+
+              <table border=6" width="98%" cellspace="10" align="center" cellpadding="19px" id="tt">
+                <tr bgcolor="white" >
+                  <th>to</th>
+                  <th>from</th>
+                  <th>date</th>
+                  <th>time</th>
+                  <th>class</th>
+                  <th>person</tr>
+                  </tr>
+                <form action="" method="post">
+                <tr bgcolor="white">
+                    <th><input type="text" name="to" id="" placeholder="To" class="int" ></th>
+                    <th><input type="text" name="from" id="" placeholder="From" class="int"></th>
+                    <th><input type="date" name="date" id="" placeholder="date" class="int"></th>
+                    <th><input type="time" name="time" id="" placeholder="time" class="int"></th>
+                    <th>
+                        <input type="radio" name="class" id="A" value="A">
+                        <label for="A">A</label>
+                        <input type="radio" name="class" id="B" value="B">
+                        <label for="B">B</label>
+                        <input type="radio" name="class" id="C" value="C">
+                        <label for="C">C</label>
+                    </th>
+                    <th><input type="text" name="p_person" id="" placeholder="person in number" class="int"></th>
+                </tr>
+                <!-- <tr>
+                  <td bgcolor="white" >
+                       
+                        <input
+                          type="submit"
+                          id="submitBtn"
+                          value="REGISTER"
+                          name="register"
+                        />
+                    </td>
+                </tr> -->
+              </table>
+              <div style="    width: 207px;
+              margin-left: 444px;
+              margin-top: 34px;">
+                <input type="submit" id="submitBtn" value="REGISTER" name="register" />
+              </div>
+            </form>
+          </div>                        
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer">
+        <div class="items">
+        <div class="item">
+          <img src="/image/plane.png" class="img" /><br />
+          <p>Cheap <br> Flights!</p>
+          
+        </div>
+        <div class="foot-txt"><p>With AirIndia 
+          <br> you can book <br> the 
+          cheapest <br> flights 24/7!</p></div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <img src="/image/dollar.png" class="img" /><br />
+          <p>Best Deals!</p>
+        </div>
+        <div class="foot-txt"><p>Get the best <br>deals for the <br>most popular <br> destinations!</p></div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <img src="/image/passport.png" class="img" /><br />
+          <p>Travel the <br>World!</p>
+        </div>
+        <div class="foot-txt"><p>Travel the <br>World with <br>your friends <br> and family</p></div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <img src="/image/package.png" class="img" /><br />
+          <p>Cheap</p>
+          <p>Packages!</p>
+        </div>
+        <div class="foot-txt"><p>Surprising <br>discounts on <br> package deals!</p></div>
+      </div>
+      </div>
+    </footer>
+  </body>
+  
+</html>
