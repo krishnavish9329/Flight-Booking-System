@@ -108,7 +108,7 @@ app.post('/login/ForgotPass', (request, response) => {
     })
 })
 
-app.get("/Booking", (request, response) => {
+app.get("/Booking/login/search", (request, response) => {
     response.sendFile(__dirname + '/wedPage/Booking.html');
 });
 
@@ -197,10 +197,11 @@ app.post('/Booking/login/AddFlight', (request, response) => {
     })
 })
 
-app.get('/Booking/login/search', (request, response) => {
+// app.get('/Booking/login/search', (request, response) => {
+app.get('/Booking', (request, response) => {
     response.sendFile(__dirname + "/wedPage/search.html");
 })
-app.post('/Booking/login/search', (request, response) => {
+app.post('/Booking', (request, response) => {
     let Departure = request.body.to;
     let destination = request.body.from;
     let date = request.body.date;

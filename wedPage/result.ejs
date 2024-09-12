@@ -73,6 +73,7 @@
                     <th>time</th>
                     <th>class</th>
                     <th>person</tr>
+                    <th></tr>
                 </tr>
                 <% for (let i=0;i<data.length;i++){%>
                 <tr bgcolor="white">
@@ -82,6 +83,7 @@
                     <th><%- data[i].time %></th>
                     <th><%- data[i].class %></th>
                     <th><%- data[i].to_parson %></th>
+                    <th><a href="/Booking/login/search"><input type="button" value="Booking"> </a></th>
                 </tr>
                 <% }%>
             </table>
