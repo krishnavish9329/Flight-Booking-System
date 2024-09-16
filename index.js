@@ -34,7 +34,7 @@ app.get("/Home", (request, response) => {
 app.get('/Booking', (request, response) => {
     response.sendFile(__dirname + "/wedPage/search.html");
 })
-app.post('/Booking', (request, response) => {
+app.post('/Booking', (request, response) => { // add Flight name
     let Departure = request.body.to;
     let destination = request.body.from;
     let date = request.body.date;
@@ -62,104 +62,24 @@ app.post('/Booking', (request, response) => {
     })
 })
 
-//---------------------Admain----------------------------
-
-app.get('/Admain/login', (request, response) => {
-    response.sendFile(__dirname + "/wedPage/Admainlogin.html");
-})
-app.post("/Admain/login", (request, response) => {
-    let user = request.body.user;
-    let pass = request.body.pass;
-
-    con.connect((error) => {
-        if (error) console.log(error);
-
-        let sql = "SELECT * FROM Admain where user=? ";
-
-        con.query(sql, [user, pass], (error, result) => {
-
-            try {
-                if (pass == result[0].password) {
-                    response.redirect("/Booking/login/AddFlight")
-                }
-                else {
-                    response.write("<h1>invail password</h1>");
-                }
-            }
-            catch (e) {
-                console.log(e);
-                response.write("<h1>invail email</h1>");
-            }
-        })
-    })
+app.get('/Booking/AddTicket', (request, response) => {
+    let Departure = request.query.Departure;
+    let destination = request.query.destination;
+    let date = request.query.date;
+    let time = request.query.time;
+    let class1= request.query.class;
+    let flight_name = request.query.to_parson;
+    let data = [Departure, destination, date, time, class1, flight_name];
+    console.log(data)
+    // response.send(data)
+    response.render(__dirname + '/wedPage/UserBooking', { data: data });
+    // response.sendFlie(__dirname + '/wedPage/UserBooking.html');
 })
 
-
-
-app.get('/Admain/Register', (request, response) => {
-    response.sendFile(__dirname + "/wedPage/AdmainRegister.html")
-})
-app.post('/Admain/Register', (request, response) => {
-    let user = request.body.user;
-    let gender = request.body.gender;
-    let email = request.body.email;
-    let password = request.body.pass
-    con.connect((error) => {
-        try {
-            console.log(error)
-            console.log("connected 2...booking/register")
-
-            let sql = `INSERT INTO Admain VALUES(?,?,?,?)`;
-
-            con.query(sql, [user, gender, email, password], (error, result) => {
-                response.redirect('/Admain/login');
-                console.log("data inserted ")
-            })
-        } catch (e) {
-            console.log(e);
-            response.write("<h1>indelid url</h1>")
-        }
-    })
-})
-
-
-
-app.get('/Admain/login/AddFlight', (request, response) => {
-    response.sendFile(__dirname + "/wedPage/AddFlight.html");
-})
-
-app.post('/Admain/login/AddFlight', (request, response) => {
-    let Departure = request.body.city;
-    let destination = request.body.to_city;
-    let time = request.body.time;
-    let date = request.body.date;
-    let Class = request.body.class;
-    let to_parson = request.body.par_parson;
-    con.connect((error) => {
-        try {
-            console.log(error)
-            console.log("connected 3...booking/Addfligth")
-
-            let sql = `INSERT INTO Flight VALUES(?,?,?,?,?,?)`;
-
-            con.query(sql, [Departure, destination, date, time, Class, to_parson], (error, result) => {
-                response.redirect('/Booking/login/AddFlight');
-                console.log("data inserted ")
-            })
-        } catch (e) {
-            console.log(e);
-            response.write("<h1>indelid url</h1>")
-        }
-    })
-})
-
-
-
-
-app.get("/Login", (request, response) => {
+app.get("/Booking/Login", (request, response) => {
     response.sendFile(__dirname + '/wedPage/Login.html');
 });
-app.post('/Login', (request, response) => {
+app.post('/Booking/Login', (request, response) => {
     let user = request.body.user;
     let pass = request.body.pass;
     console.log(user + " " + pass);
@@ -187,10 +107,11 @@ app.post('/Login', (request, response) => {
     })
 })
 
-app.get("/login/Register", (request, response) => {
+app.get("/Booking/login/Register", (request, response) => {
     response.sendFile(__dirname + '/wedPage/Register.html');
 });
-app.post("/login/Register", (request, response) => {
+
+app.post("/Booking/login/Register", (request, response) => {
     let user = request.body.user;
     let gender = request.body.gender;
     let email = request.body.email;
@@ -204,7 +125,7 @@ app.post("/login/Register", (request, response) => {
             let sql = `INSERT INTO customer VALUES(?,?,?,?)`;
             con.query(sql, [user, gender, email, password], (error, result) => {
                 //console.log(sql);
-                response.redirect('/login');
+                response.redirect('/Booking/login');
                 console.log("data inserted ")
             })
         } catch (e) {
@@ -214,10 +135,10 @@ app.post("/login/Register", (request, response) => {
     })
 })
 
-app.get("/login/ForgotPass", (request, response) => {
+app.get("/Booking/login/ForgotPass", (request, response) => {
     response.sendFile(__dirname + '/wedPage/ForgotPass.html');
 });
-app.post('/login/ForgotPass', (request, response) => {
+app.post('/Booking/login/ForgotPass', (request, response) => {
     let email = request.body.email;
     con.connect((err) => {
         if (err) console.log(err);
@@ -234,7 +155,6 @@ app.post('/login/ForgotPass', (request, response) => {
                 console.log(e);
                 response.write("<h1>invaild email</h1>")
             }
-
         })
     })
 })
@@ -243,93 +163,93 @@ app.get("/Booking/login/search", (request, response) => {
     response.sendFile(__dirname + '/wedPage/Booking.html');
 });
 
-//----------------------------------------------------------
-// app.get('/Admain/login', (request, response) => {
-//     response.sendFile(__dirname + "/wedPage/Admainlogin.html");
-// })
-// app.post("/Admain/login", (request, response) => {
-//     let user = request.body.user;
-//     let pass = request.body.pass;
+//---------------------Admain----------------------------
 
-//     con.connect((error) => {
-//         if (error) console.log(error);
+app.get('/Admain/login', (request, response) => {
+    response.sendFile(__dirname + "/wedPage/Admainlogin.html");
+})
 
-//         let sql = "SELECT * FROM Admain where user=? ";
+app.post("/Admain/login", (request, response) => {
+    let user = request.body.user;
+    let pass = request.body.pass;
 
-//         con.query(sql, [user, pass], (error, result) => {
+    con.connect((error) => {
+        if (error) console.log(error);
 
-//             try {
-//                 if (pass == result[0].password) {
-//                     response.redirect("/Booking/login/AddFlight")
-//                 }
-//                 else {
-//                     response.write("<h1>invail password</h1>");
-//                 }
-//             }
-//             catch (e) {
-//                 console.log(e);
-//                 response.write("<h1>invail email</h1>");
-//             }
-//         })
-//     })
-// })
+        let sql = "SELECT * FROM Admain where user=? ";
 
-// app.get('/Booking/Register', (request, response) => {
-//     response.sendFile(__dirname + "/wedPage/AdmainRegister.html")
-// })
-// app.post('/Booking/Register', (request, response) => {
-//     let user = request.body.user;
-//     let gender = request.body.gender;
-//     let email = request.body.email;
-//     let password = request.body.pass
-//     con.connect((error) => {
-//         try {
-//             console.log(error)
-//             console.log("connected 2...booking/register")
+        con.query(sql, [user, pass], (error, result) => {
 
-//             let sql = `INSERT INTO Admain VALUES(?,?,?,?)`;
+            try {
+                if (pass == result[0].password) {
+                    response.redirect("/Admain/login/AddFlight")
+                }
+                else {
+                    response.write("<h1>invail password</h1>");
+                }
+            }
+            catch (e) {
+                console.log(e);
+                response.write("<h1>invail email</h1>");
+            }
+        })
+    })
+})
 
-//             con.query(sql, [user, gender, email, password], (error, result) => {
-//                 response.redirect('/Booking/login');
-//                 console.log("data inserted ")
-//             })
-//         } catch (e) {
-//             console.log(e);
-//             response.write("<h1>indelid url</h1>")
-//         }
-//     })
-// })
+app.get('/Admain/Register', (request, response) => {
+    response.sendFile(__dirname + "/wedPage/AdmainRegister.html")
+})
+app.post('/Admain/Register', (request, response) => {
+    let user = request.body.user;
+    let gender = request.body.gender;
+    let email = request.body.email;
+    let password = request.body.pass
+    con.connect((error) => {
+        try {
+            console.log(error)
+            console.log("connected 2...booking/register")
 
-// app.get('/Booking/login/AddFlight', (request, response) => {
-//     response.sendFile(__dirname + "/wedPage/AddFlight.html");
-// })
+            let sql = `INSERT INTO Admain VALUES(?,?,?,?)`;
 
-// app.post('/Booking/login/AddFlight', (request, response) => {
-//     let Departure = request.body.city;
-//     let destination = request.body.to_city;
-//     let time = request.body.time;
-//     let date = request.body.date;
-//     let Class = request.body.class;
-//     let to_parson = request.body.par_parson;
-//     con.connect((error) => {
-//         try {
-//             console.log(error)
-//             console.log("connected 3...booking/Addfligth")
+            con.query(sql, [user, gender, email, password], (error, result) => {
+                response.redirect('/Admain/login');
+                console.log("data inserted ")
+            })
+        } catch (e) {
+            console.log(e);
+            response.write("<h1>indelid url</h1>")
+        }
+    })
+})
 
-//             let sql = `INSERT INTO Flight VALUES(?,?,?,?,?,?)`;
+app.get('/Admain/login/AddFlight', (request, response) => {
+    response.sendFile(__dirname + "/wedPage/AddFlight.html");
+})
 
-//             con.query(sql, [Departure, destination, date, time, Class, to_parson], (error, result) => {
-//                 response.redirect('/Booking/login/AddFlight');
-//                 console.log("data inserted ")
-//             })
-//         } catch (e) {
-//             console.log(e);
-//             response.write("<h1>indelid url</h1>")
-//         }
-//     })
-// })
+app.post('/Admain/login/AddFlight', (request, response) => { // Add flight Name  goto data mysql
+    let Departure = request.body.city;
+    let destination = request.body.to_city;
+    let time = request.body.time;
+    let date = request.body.date;
+    let Class = request.body.class;
+    let Flight = request.body.Flight;
+    con.connect((error) => {
+        try {
+            console.log(error)
+            console.log("connected 3...booking/Addfligth")
 
+            let sql = `INSERT INTO Flight VALUES(?,?,?,?,?,?)`;
 
+            con.query(sql, [Departure, destination, date, time, Class, Flight], (error, result) => {
+                response.redirect('/Admain/login/AddFlight');
+                console.log("data inserted ")
+            })
+        } catch (e) {
+            console.log(e);
+            response.write("<h1>indelid url</h1>")
+        }
+    })
+})
 app.listen(port, () => {
     console.log(`server start at http://localhost:${port}/Home`)
 });

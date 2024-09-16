@@ -261,6 +261,7 @@ input[type="text"]::placeholder {
     letter-spacing: 1px;
     font-size: 25px;
     margin-bottom: 20px;
+    border-radius: 35px;
 }
 
 
