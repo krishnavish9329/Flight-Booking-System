@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER BOOKIMG</title>
+
+    <link rel="stylesheet" href="/Register.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <header>
+        <nav class="nav-1">
+          <div id="#left">
+            <img src="/image/logo.png" alt="flight" id="web-logo" />
+            <span id="web-name">AIR INDIA</span>
+          </div>
+  
+          <ul id="center">
+            <li><a id="home" href="/Home">HOME</a></li>
+            <li><a id="booking" href="/Booking"style="color:black">BOOKING</a></li>
+            <li><a id="login" href="/Admain/login" style="color:white">ADMAIN</a></li>
+          </ul>
+          <div id="right">
+            <form   action="http://www.google.com/search"   method="get"   target="_blank" >
+              <input
+                type="text"
+                placeholder="Search"
+                name="q"
+                autocomplete="off"
+              />
+  
+              <button type="submit" id="sub-btn">
+                <img src="/image/search.png" id="search" />
+              </button>
+            </form>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <style>
+            .container1{
+                height: 700px;
+                width: 500px;
+                border: 2px solid black;
+                margin: 0;
+                padding: 22px;
+                background-color: #4895ef;
+                border-radius: 22px;
+                margin-top: 232px;
+            }
+            .container1:hover{
+                box-shadow: 9px 7px 22px black;
+            }
+            .container{
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                margin-top: 232px;
+            }
+            input[type='text']{
+                border: 2px solid black;
+                background-color: white;
+            }
+            input[type='password']{
+                border: 2px solid black;
+                background-color: white;
+            }
+        </style>
+        <div class="container">
+          <div class="container1">
+              <form action="" method="post">
+                  <H1>USER FILL REQUIRED FILD</H1>
+                  <p>To</p>
+                  <!-- <p style="color: white; font-size: 18px;"><- data[0].Departure> </p> -->
+                  <input type="text" name="city" id="city" placeholder="<%- data[0].Departure %>" required value="<%- data[0].Departure %>">
+                  <p>From</p>
+                  <!-- <p style="color: white; font-size: 18px;"><> </p> -->
+                  <input type="text" name="to_city" id="" placeholder="<>" required value="<>">
+                  <P>Time</P>
+                  <input type="Time" name="to_city" id="" placeholder="10:10:10" required value="<>">
+                  <!-- <p style="color: white; font-size: 18px;"><></p> -->
+                  <P>date</P>
+                  <input type="text" name="to_city" id="" placeholder="<>" required value="<>">
+                  <!-- <p style="color: white; font-size: 18px;"><></p> -->
+                  <p>Class</p>
+                  <input type="radio" name="class" id="A" value="<>">
+                  <label for="<>"><span class=""><></span></label>
+                  <!-- <p style="color: white; font-size: 18px;">ABC<></p> -->
+                  <P>Number Of person </P>
+                  <input type="text" name="par_parson" id="" placeholder="Number of Person" required>
+                  <p>Name</p>
+                  <input type="text" name="Names" id="" placeholder="Enter The Names" required >
+                  <p>Gmail</p>
+                  <input type="text" name="Gmail" id="" placeholder="Enter the Gmail" required >
+                  <p>Enter the password</p>
+                  <input type="password" name="Password" id="" placeholder="Password" required style="width: 200px;
+                  height: 24px;
+                  font-size: 20px;">
+                  
+                  <input  type="submit"  id="submitBtn"  value="REGISTER < >"  name="register" />                  
+                </form>
+
+                <div>
+                    <H1 class="div-s"> succecc></H1>
+                </div>
+                <style>
+                  .div-s{
+                    height: 55px;
+                    width: 500px;
+                    background-color: black;
+                    color: white;
+                    font-size: 28px;
+                    border-radius: 22px
+                  }
+                </style> 
+          </div>
+          </div>
+        </div>
+      </main>
+
+      <main>
+        <style>
+            .container{
+                height: 370px;
+            }
+            #log{
+                width: 90%;
+                height: 160px;
+                margin-left: 70px;
+                padding-top: 80px;
+            }
+            .BBB{
+            height: 17em;
+            overflow: auto;
+            }
+            .int{
+                background-color: white;
+                color: black;
+                font-size: 10px;
+            }
+            .book_but{
+              border: 2px solid;
+              background-color: #224a9f;
+              border-radius: 6px;
+              color: white;
+              margin: 1px;
+              padding: 3px;
+            }
+            .book_but:hover{
+              color: black;
+              background-color: wheat;
+              border: 2px solid;
+            }
+        </style>
+      <div class="container">
+        
+        <div id="log" class="BBB">
+
+          <% if(data.length>0) {%>
+            
+            <table border=6" width="98%" cellspace="20" align="center" cellpadding="19px" id="tt">
+                <tr bgcolor="white" >
+                    <th>To</th>
+                    <th>From</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Class</th>
+                    <th>Person</tr>
+                    <th></tr>
+                </tr>
+                <% for (let i=0;i<data.length;i++){%>
+                <tr bgcolor="white">
+                    <th><%- data[1].Departure %></th>
+                    <th><%- data[1].destination %></th>
+                    <th><%- data[1].date %></th>
+                    <th><%- data[1].time %></th>
+                    <th><%- data[1].class %></th>
+                    <th><%- data[1].to_parson %></th>
+                    <th><a href="/booking/login" ><input type="button" value="Booking" class="book_but"> </a></th>
+                </tr>
+                <% }%>
+            </table>
+
+            <% }else{%>
+                <H1>no data found  or selected</H1>
+              <%}%>
+            <script>
+              console.log(tat);
+            </script>
+            
+        </div>
+      </div>
+    </main>
+
+
+
+
+
+
+      <footer>
+        <div class="footer">
+          <div class="items">
+          <div class="item">
+            <img src="/image/plane.png" class="img" /><br />
+            <p>Cheap <br> Flights!</p>
+            
+          </div>
+          <div class="foot-txt"><p>With AirIndia 
+            <br> you can book <br> the 
+            cheapest <br> flights 24/7!</p></div>
+        </div>
+        <div class="items">
+          <div class="item">
+            <img src="/image/dollar.png" class="img" /><br />
+            <p>Best Deals!</p>
+          </div>
+          <div class="foot-txt"><p>Get the best <br>deals for the <br>most popular <br> destinations!</p></div>
+        </div>
+        <div class="items">
+          <div class="item">
+            <img src="/image/passport.png" class="img" /><br />
+            <p>Travel the <br>World!</p>
+          </div>
+          <div class="foot-txt"><p>Travel the <br>World with <br>your friends <br> and family</p></div>
+        </div>
+        <div class="items">
+          <div class="item">
+            <img src="/image/package.png" class="img" /><br />
+            <p>Cheap</p>
+            <p>Packages!</p>
+          </div>
+          <div class="foot-txt"><p>Surprising <br>discounts on <br> package deals!</p></div>
+        </div>
+        </div>
+      </footer>
+    
+
+</body>
+</html>
