@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER SHOW DATA</title>
+
+    <link rel="stylesheet" href="/Register.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <header>
+        <nav class="nav-1">
+          <div id="#left">
+            <img src="/image/logo.png" alt="flight" id="web-logo" />
+            <span id="web-name">AIR INDIA</span>
+          </div>
+  
+          <ul id="center">
+            <li><a id="home" href="/Home">HOME</a></li>
+            <li><a id="booking" href="/Booking"style="color:black">BOOKING</a></li>
+            <li><a id="login" href="/Admain/login" style="color:white">ADMAIN</a></li>
+          </ul>
+          <div id="right">
+            <form   action="http://www.google.com/search"   method="get"   target="_blank" >
+              <input
+                type="text"
+                placeholder="Search"
+                name="q"
+                autocomplete="off"
+              />
+  
+              <button type="submit" id="sub-btn">
+                <img src="/image/search.png" id="search" />
+              </button>
+            </form>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <style>
+            .container{
+                height: 370px;
+            }
+            #log{
+                width: 90%;
+                height: 160px;
+                margin-left: 70px;
+                padding-top: 80px;
+            }
+            .BBB{
+            height: 17em;
+            overflow: auto;
+            }
+            .int{
+                background-color: white;
+                color: black;
+                font-size: 10px;
+            }
+            .book_but{
+              border: 2px solid;
+              background-color: #224a9f;
+              border-radius: 6px;
+              color: white;
+              margin: 1px;
+              padding: 3px;
+            }
+            .book_but:hover{
+              color: black;
+              background-color: wheat;
+              border: 2px solid;
+            }
+        </style>
+      <div class="container">
+        
+        <div id="log" class="BBB">
+
+          <% if(data.length>0) {%>
+            
+            <table border=5" width="100%" cellspace="20" align="center" cellpadding="19px" id="tt">
+                <tr bgcolor="white" >
+                  <th>Flight No.</th>
+                  <th>Flight Name</th>
+                  <th>To</th>
+                  <th>From</th>
+                  <th>Date</th>
+                  <th>Class</th>
+                  <th>No.Person</th>
+                  <th>Names</th>
+                  <th>Gmail</th>
+                  <th>Password</th>
+                  
+                </tr>
+                <% for (let i=0;i<data.length;i++){%>
+                <tr bgcolor="white">
+                    <th><%- data[i].FNumber %></th>
+                    <th><%- data[i].FName %></th>
+                    <th><%- data[i].Departure %></th>
+                    <th><%- data[i].destination %></th>
+                    <% let Date1 = new Date(data[i].date);let date = Date1.toISOString(); date %>
+                    <th><%- date %></th>
+                    <th><%- data[i].class %></th>
+                    <th><%- data[i].NumberOfParson %></th>
+                    <th><%- data[i].Names %></th>
+                    <th><%- data[i].Gmail %></th>
+                    <th><%- data[i].Password %></th>
+                    <th><a href="/Booking/AddTicket/UserShowData/Delete?id=<%- data[i].id %>" ><input type="button" value="DELETE" class="book_but"> </a></th>
+                </tr>
+                <% }%>
+            </table>
+            <% }else{%>
+                <H1>no data found  or selected</H1>
+              <%}%>
+            <script>
+              console.log(tat);
+            </script>
+            
+        </div>
+      </div>
+    </main> 
+
+
+
+
+
+
+      <footer>
+        <div class="footer">
+          <div class="items">
+          <div class="item">
+            <img src="/image/plane.png" class="img" /><br />
+            <p>Cheap <br> Flights!</p>
+            
+          </div>
+          <div class="foot-txt"><p>With AirIndia 
+            <br> you can book <br> the 
+            cheapest <br> flights 24/7!</p></div>
+        </div>
+        <div class="items">
+          <div class="item">
+            <img src="/image/dollar.png" class="img" /><br />
+            <p>Best Deals!</p>
+          </div>
+          <div class="foot-txt"><p>Get the best <br>deals for the <br>most popular <br> destinations!</p></div>
+        </div>
+        <div class="items">
+          <div class="item">
+            <img src="/image/passport.png" class="img" /><br />
+            <p>Travel the <br>World!</p>
+          </div>
+          <div class="foot-txt"><p>Travel the <br>World with <br>your friends <br> and family</p></div>
+        </div>
+        <div class="items">
+          <div class="item">
+            <img src="/image/package.png" class="img" /><br />
+            <p>Cheap</p>
+            <p>Packages!</p>
+          </div>
+          <div class="foot-txt"><p>Surprising <br>discounts on <br> package deals!</p></div>
+        </div>
+        </div>
+      </footer>
+    
+
+</body>
+</html>

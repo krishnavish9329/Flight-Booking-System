@@ -48,14 +48,13 @@
       <main>
         <style>
             .container1{
-                height: 700px;
-                width: 500px;
+                height: 735px;
+                width: 550px;
                 border: 2px solid black;
                 margin: 0;
                 padding: 22px;
                 background-color: #4895ef;
                 border-radius: 22px;
-                margin-top: 232px;
             }
             .container1:hover{
                 box-shadow: 9px 7px 22px black;
@@ -64,7 +63,8 @@
                 display: flex;
                 text-align: center;
                 justify-content: center;
-                margin-top: 232px;
+                margin-top: 222px;
+                margin-bottom: 222px;
             }
             input[type='text']{
                 border: 2px solid black;
@@ -77,26 +77,27 @@
         </style>
         <div class="container">
           <div class="container1">
-              <form action="" method="post">
+              <form action="#" method="post">
                   <H1>USER FILL REQUIRED FILD</H1>
+                  <p>Filght Number</p>
+                  <input type="text" name="FNumber" id="" placeholder="<%- data[0]%>"  value="<%- data[0]%>" readonly>
+                  <p>Filght Name</p>
+                  <input type="text" name="FName" id="" placeholder="<%- data[1]%>"  value="<%- data[1]%>" readonly>
                   <p>To</p>
-                  <!-- <p style="color: white; font-size: 18px;"><- data[0].Departure> </p> -->
-                  <input type="text" name="city" id="city" placeholder="<%- data[0].Departure %>" required value="<%- data[0].Departure %>">
+                  <input type="text" name="Departure" id="city" placeholder="<%- data[2]%>"  value="<%- data[2]%>" readonly>
                   <p>From</p>
-                  <!-- <p style="color: white; font-size: 18px;"><> </p> -->
-                  <input type="text" name="to_city" id="" placeholder="<>" required value="<>">
-                  <P>Time</P>
-                  <input type="Time" name="to_city" id="" placeholder="10:10:10" required value="<>">
-                  <!-- <p style="color: white; font-size: 18px;"><></p> -->
-                  <P>date</P>
-                  <input type="text" name="to_city" id="" placeholder="<>" required value="<>">
-                  <!-- <p style="color: white; font-size: 18px;"><></p> -->
+                  <input type="text" name="destination" id="" placeholder="<%- data[3]%>"  value="<%- data[3]%>" readonly>
+                  <P>Date Time</P>
+                  <p><%= data[4] %></p>
+                  <P style="color: #ffffff;font-size: 22px;">Conferm Date & Time</P>
+                  <!-- <input type="datetime-local" name="date" id="" value="<%= data[4] %>" readonly> -->
+                  <input type="datetime-local" name="date" required style="border: 2px solid; width: 196px; height: 24px;"   >
                   <p>Class</p>
-                  <input type="radio" name="class" id="A" value="<>">
-                  <label for="<>"><span class=""><></span></label>
-                  <!-- <p style="color: white; font-size: 18px;">ABC<></p> -->
+                  <input type="radio" name="class" id="A" value="<%- data[5]%>" required>
+                  <label for="<%- data[5]%>"><span class=""><%- data[5]%></span></label>
+                   
                   <P>Number Of person </P>
-                  <input type="text" name="par_parson" id="" placeholder="Number of Person" required>
+                  <input type="text" name="NumberOfParson" id="" placeholder="Number of Person" required>
                   <p>Name</p>
                   <input type="text" name="Names" id="" placeholder="Enter The Names" required >
                   <p>Gmail</p>
@@ -106,106 +107,20 @@
                   height: 24px;
                   font-size: 20px;">
                   
-                  <input  type="submit"  id="submitBtn"  value="REGISTER < >"  name="register" />                  
+                <script>
+                  function submit(){           
+                  alert("data is Successfully Entered")
+                  }
+                </script>
+                  <input  type="submit"  id="submitBtn"  value="REGISTER"  name="register" onclick="submit()" />                  
                 </form>
 
-                <div>
-                    <H1 class="div-s"> succecc></H1>
-                </div>
-                <style>
-                  .div-s{
-                    height: 55px;
-                    width: 500px;
-                    background-color: black;
-                    color: white;
-                    font-size: 28px;
-                    border-radius: 22px
-                  }
-                </style> 
-          </div>
+              </div>
           </div>
         </div>
       </main>
 
-      <main>
-        <style>
-            .container{
-                height: 370px;
-            }
-            #log{
-                width: 90%;
-                height: 160px;
-                margin-left: 70px;
-                padding-top: 80px;
-            }
-            .BBB{
-            height: 17em;
-            overflow: auto;
-            }
-            .int{
-                background-color: white;
-                color: black;
-                font-size: 10px;
-            }
-            .book_but{
-              border: 2px solid;
-              background-color: #224a9f;
-              border-radius: 6px;
-              color: white;
-              margin: 1px;
-              padding: 3px;
-            }
-            .book_but:hover{
-              color: black;
-              background-color: wheat;
-              border: 2px solid;
-            }
-        </style>
-      <div class="container">
-        
-        <div id="log" class="BBB">
-
-          <% if(data.length>0) {%>
-            
-            <table border=6" width="98%" cellspace="20" align="center" cellpadding="19px" id="tt">
-                <tr bgcolor="white" >
-                    <th>To</th>
-                    <th>From</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Class</th>
-                    <th>Person</tr>
-                    <th></tr>
-                </tr>
-                <% for (let i=0;i<data.length;i++){%>
-                <tr bgcolor="white">
-                    <th><%- data[1].Departure %></th>
-                    <th><%- data[1].destination %></th>
-                    <th><%- data[1].date %></th>
-                    <th><%- data[1].time %></th>
-                    <th><%- data[1].class %></th>
-                    <th><%- data[1].to_parson %></th>
-                    <th><a href="/booking/login" ><input type="button" value="Booking" class="book_but"> </a></th>
-                </tr>
-                <% }%>
-            </table>
-
-            <% }else{%>
-                <H1>no data found  or selected</H1>
-              <%}%>
-            <script>
-              console.log(tat);
-            </script>
-            
-        </div>
-      </div>
-    </main>
-
-
-
-
-
-
+      
       <footer>
         <div class="footer">
           <div class="items">

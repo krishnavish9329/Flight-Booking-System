@@ -83,23 +83,25 @@
             
             <table border=6" width="98%" cellspace="20" align="center" cellpadding="19px" id="tt">
                 <tr bgcolor="white" >
+                    <th>Flight Number</th>
+                    <th>Flight Name</th>
                     <th>To</th>
                     <th>From</th>
-                    <th>Date</th>
-                    <th>Time</th>
+                    <th>Date Time</th>
                     <th>Class</th>
-                    <th>Flight Name</tr>
+                    <!-- <th>Flight Name</tr> -->
                     <th></tr>
                 </tr>
                 <% for (let i=0;i<data.length;i++){%>
                 <tr bgcolor="white">
+                    <th><%- data[i].FNumber %></th>
+                    <th><%- data[i].FName %></th>
                     <th><%- data[i].Departure %></th>
                     <th><%- data[i].destination %></th>
                     <th><%- data[i].date %></th>
-                    <th><%- data[i].time %></th>
                     <th><%- data[i].class %></th>
-                    <th><%- data[i].to_parson %></th> <!-- change hear to person into  flight name and Data base -->
-                    <th><a href="/Booking/AddTicket?Departure=<%- data[i].Departure %>&destination=<%- data[i].destination %>&date=<%- data[i].date %>&time=<%- data[i].time %>&class=<%- data[i].class %>&flight_name<%- data[i].to_parson %>" ><input type="button" value="Booking" class="book_but"> </a></th>
+                    <!-- <th><%- data[i].to_parson %></th> change hear to person into  flight name and Data base -->
+                    <th><a href="/Booking/AddTicket?FNumber=<%- data[i].FNumber %>&FName=<%- data[i].FName %>&Departure=<%- data[i].Departure %>&destination=<%- data[i].destination %>&date=<%- data[i].date %>&class=<%- data[i].class %>" ><input type="button" value="Booking" class="book_but"> </a></th>
                 </tr>
                 <% }%>
             </table>
