@@ -25,10 +25,10 @@ Following roles are implemented:
 
 
 1- Install these:
-    * { Node Js }(https://nodejs.org/en/download/source-code)
-    * { Vs Code }(https://code.visualstudio.com/download)
-    * { mysql }(https://dev.mysql.com/downloads/workbench/)
-    * { Git }(https://git-scm.com/downloads)
+    * [ Node Js](https://nodejs.org/en/download/source-code)
+    * [ Vs Code ](https://code.visualstudio.com/download)
+    * [ mysql ](https://dev.mysql.com/downloads/workbench/)
+    * [ Git ](https://git-scm.com/downloads)
 
 2- setup of database 
     copy this sql query
