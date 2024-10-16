@@ -91,11 +91,11 @@ Following roles are implemented:
         select * from Flight;
     }
 
-3- Open Vs Code<hr>
-    * make the clone of the project (git clone https://github.com/krishnavish9329/Flight-Booking-System.git) <hr>
-    * run ( npm install ) <hr>
-    * After instalation dependencies run ( npm run str ) <hr>
-    * open your browser and goto this URL (http://localhost:5000/Home) <hr>
+3- Open Vs Code<br>
+    * make the clone of the project (git clone https://github.com/krishnavish9329/Flight-Booking-System.git) <br>
+    * run ( npm install ) <br>
+    * After instalation dependencies run ( npm run str ) <br>
+    * open your browser and goto this URL (http://localhost:5000/Home) <br>
     
 ## Interface
 
