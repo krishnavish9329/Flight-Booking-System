@@ -91,13 +91,22 @@ Following roles are implemented:
         select * from Flight;
     }
 
-3- Open Vs Code
-    * make the clone of the project (git clone https://github.com/krishnavish9329/Flight-Booking-System.git)
-    * run ( npm install )
-    * After instalation dependencies run ( npm run str )
-    * open your browser and goto this URL (http://localhost:5000/Home)
+3- Open Vs Code<hr>
+    * make the clone of the project (git clone https://github.com/krishnavish9329/Flight-Booking-System.git) <hr>
+    * run ( npm install ) <hr>
+    * After instalation dependencies run ( npm run str ) <hr>
+    * open your browser and goto this URL (http://localhost:5000/Home) <hr>
     
+## Interface
 
+
+#### Home Pages
+
+<p align="middle">
+   <img src="../main/Images/Home.png" width="400"/>
+   <img src="../main/Images/Home2.png" width="400"/>
+   <img src="../main/Images/Home3.png" width="400"/>
+</p>
 
 
 
@@ -120,4 +129,4 @@ If you face any issue, you can create a new issue in the Issues Tab and I will b
 
 
 
-Copyright (c) 2018-present, harismuneer    
+Copyright (c) 2024-present, krishnavish9329    
