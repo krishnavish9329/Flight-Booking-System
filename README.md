@@ -31,11 +31,12 @@ Following roles are implemented:
     * [ Git ](https://git-scm.com/downloads)
 
 2- setup of database 
-    copy this sql query
+    copy this sql query<br>
     {
+
+
         CREATE DATABASE flight_database;
         use flight_database;
-
         drop table customer;
 
         CREATE TABLE customer
