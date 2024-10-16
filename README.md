@@ -103,9 +103,9 @@ Following roles are implemented:
 #### Home Pages
 
 <p align="middle">
-   <img src="../main/Images/Home.png" width="400"/>
-   <img src="../main/Images/Home2.png" width="400"/>
-   <img src="../main/Images/Home3.png" width="400"/>
+   <img src="../main/Image/Home.png" width="400"/>
+   <img src="../main/Image/Home2.png" width="400"/>
+   <img src="../main/Image/Home3.png" width="400"/>
 </p>
 
 
